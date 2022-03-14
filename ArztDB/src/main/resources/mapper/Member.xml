@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.example.ArztDB.member.MemberRepository">
+
+    <select id="getMember" resultType="MemberVo">
+        select * from member
+    </select>
+
+    <insert id="memberInsert" parameterType="MemberVo">
+        insert into member values(no_seq.NEXTVAL, #{user_id},#{user_pwd},#{user_name},#{user_sex},#{user_phone},#{user_mail},null )
+    </insert>
+</mapper>
