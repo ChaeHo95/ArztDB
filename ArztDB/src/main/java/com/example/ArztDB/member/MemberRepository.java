@@ -7,6 +7,8 @@ import java.util.List;
 @Mapper
 public interface MemberRepository {
 
-    List<MemberVo> getMember();
+    List<MemberVo> getAllMember();
     void memberInsert(MemberVo memberVo);
+    boolean memberLogin(MemberVo memberVo);
+    MemberVo getMember(MemberVo memberVo);
 }

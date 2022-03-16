@@ -28,6 +28,11 @@ public class MemberController {
 
     @RequestMapping(value ="/show" , method = RequestMethod.GET )
     public List<MemberVo> userShow() {
-        return memberService.getMember();
+        return memberService.getAllMember();
+    }
+
+    @RequestMapping(value ="/login" , method = RequestMethod.POST)
+    public boolean memberLogin(@RequestBody MemberVo memberVo) {
+        return memberService.memberLogin(memberVo);
     }
 }
