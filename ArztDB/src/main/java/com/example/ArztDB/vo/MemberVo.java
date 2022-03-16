@@ -1,4 +1,4 @@
-package com.example.ArztDB.member;
+package com.example.ArztDB.vo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
@@ -32,5 +32,6 @@ public class MemberVo {
     @JsonProperty
     private String user_adress;
 
-
+    @JsonProperty
+    private String user_op;
 }

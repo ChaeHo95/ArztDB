@@ -3,17 +3,45 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace = "com.example.ArztDB.member.MemberRepository">
+<mapper namespace = "com.example.ArztDB.mapper.XmlMapper">
 
     <select id="getAllMember" resultType="MemberVo">
         select * from member
     </select>
 
     <insert id="memberInsert" parameterType="MemberVo">
-        insert into member values(no_seq.NEXTVAL, #{user_id},#{user_pwd},#{user_name},#{user_sex},#{user_phone},#{user_mail},null )
+        insert into member values(no_seq.NEXTVAL, #{user_id},#{user_pwd},#{user_name},#{user_sex},#{user_phone},#{user_mail},null, #{user_op})
     </insert>
 
     <select id="getMember" resultType="MemberVo">
+        select * from member where id = #{id}
+    </select>
+
+    <select id="getId" resultType="MemberVo">
         select * from member where user_id = #{user_id}
+    </select>
+
+    <select id="getPhone" resultType="MemberVo">
+        select * from member where user_phone = #{user_phone}
+    </select>
+
+    <select id="getMail" resultType="MemberVo">
+        select * from member where user_mail = #{user_mail}
+    </select>
+
+    <insert id="login" parameterType="SessionVo">
+        insert into loginsession values(#{id},#{user_session},#{user_login})
+    </insert>
+
+    <delete id="logout" parameterType="SessionVo">
+        delete from loginsession where id = #{id}
+    </delete>
+
+    <select id="getAllSession" resultType="SessionVo">
+        select * from loginsession
+    </select>
+
+    <select id="getSession" resultType="SessionVo">
+        select * from loginsession where user_session = #{user_session}
     </select>
 </mapper>

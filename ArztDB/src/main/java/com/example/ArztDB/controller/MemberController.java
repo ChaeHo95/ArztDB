@@ -1,5 +1,8 @@
-package com.example.ArztDB.member;
+package com.example.ArztDB.controller;
 
+import com.example.ArztDB.service.MemberService;
+import com.example.ArztDB.vo.MemberVo;
+import com.example.ArztDB.vo.SessionVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "member")
 public class MemberController {
+
     @Autowired
     MemberService memberService;
 
@@ -21,9 +25,8 @@ public class MemberController {
         return mv;
     }
     @RequestMapping(value ="/reg" , method = RequestMethod.POST )
-    public void memberRegister(@RequestBody MemberVo memberVo) {
-        System.out.println(memberVo);
-        memberService.memberInsert(memberVo);
+    public MemberVo memberRegister(@RequestBody MemberVo memberVo) {
+        return memberService.memberInsert(memberVo);
     }
 
     @RequestMapping(value ="/show" , method = RequestMethod.GET )
@@ -32,7 +35,13 @@ public class MemberController {
     }
 
     @RequestMapping(value ="/login" , method = RequestMethod.POST)
-    public boolean memberLogin(@RequestBody MemberVo memberVo) {
+    public SessionVo memberLogin(@RequestBody MemberVo memberVo) {
         return memberService.memberLogin(memberVo);
     }
+
+    @RequestMapping(value ="/state" , method = RequestMethod.POST )
+    public Boolean userState(@RequestBody String str) {
+        return memberService.userState(str);
+    }
+
 }
