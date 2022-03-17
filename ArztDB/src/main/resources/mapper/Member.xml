@@ -34,7 +34,7 @@
     </insert>
 
     <delete id="logout" parameterType="SessionVo">
-        delete from loginsession where id = #{id}
+        delete from loginsession where user_session = #{user_session}
     </delete>
 
     <select id="getAllSession" resultType="SessionVo">

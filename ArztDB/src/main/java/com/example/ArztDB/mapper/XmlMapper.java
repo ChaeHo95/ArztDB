@@ -18,5 +18,5 @@ public interface XmlMapper {
     List<SessionVo> getAllSession();
 
     SessionVo getSession(SessionVo sessionVo);
-    SessionVo logout();
+    void logout(SessionVo sessionVo);
 }

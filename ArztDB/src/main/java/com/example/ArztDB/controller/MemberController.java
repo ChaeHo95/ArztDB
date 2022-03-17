@@ -39,6 +39,11 @@ public class MemberController {
         return memberService.memberLogin(memberVo);
     }
 
+    @RequestMapping(value ="/logout" , method = RequestMethod.POST)
+    public void memberLogout(@RequestBody String str) {
+        memberService.memberLogout(str);
+    }
+
     @RequestMapping(value ="/state" , method = RequestMethod.POST )
     public Boolean userState(@RequestBody String str) {
         return memberService.userState(str);

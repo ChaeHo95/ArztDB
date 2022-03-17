@@ -15,6 +15,8 @@ public interface MemberRepository {
 
     SessionVo memberLogin(MemberVo memberVo);
 
+    void memberLogout(String session);
+
     MemberVo getMember(MemberVo memberVo);
 
     Boolean userState(String str);
