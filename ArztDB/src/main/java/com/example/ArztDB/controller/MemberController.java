@@ -40,13 +40,17 @@ public class MemberController {
     }
 
     @RequestMapping(value ="/logout" , method = RequestMethod.POST)
-    public void memberLogout(@RequestBody String str) {
-        memberService.memberLogout(str);
+    public void memberLogout(@RequestBody SessionVo sessionVo) {
+        memberService.memberLogout(sessionVo);
+    }
+    @RequestMapping(value ="/state" , method = RequestMethod.POST )
+    public Boolean userState(@RequestBody SessionVo sessionVo) {
+        return memberService.userState(sessionVo);
     }
 
-    @RequestMapping(value ="/state" , method = RequestMethod.POST )
-    public Boolean userState(@RequestBody String str) {
-        return memberService.userState(str);
+    @RequestMapping(value ="/infos" , method = RequestMethod.POST)
+    public MemberVo getMemberVo(@RequestBody SessionVo sessionVo) {
+        return memberService.getMember(sessionVo);
     }
 
 }

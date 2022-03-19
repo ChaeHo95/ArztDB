@@ -7,8 +7,6 @@ import com.example.ArztDB.vo.SessionVo;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.net.URLDecoder;
 import java.util.List;
 import java.util.Random;
 
@@ -49,8 +47,13 @@ public class MemberService implements MemberRepository {
         SessionVo sessionVo = new SessionVo();
         MemberVo member = mapper.getId(memberVo);
         List<SessionVo> sessionVos = mapper.getAllSession();
+        for(int  i=0; i<sessionVos.size(); i++){
+            if(sessionVos.get(i).getId() == member.getId()){
+                sessionVo.setUser_login("overlap");
+                return sessionVo;
+            }
+        }
         String str;
-
         String specialSymbol = "";
         for(int i=33; i<126; i++){
             specialSymbol = specialSymbol + String.valueOf((char)i);
@@ -96,37 +99,33 @@ public class MemberService implements MemberRepository {
     }
 
     @Override
-    public void memberLogout(String session) {
-        session = URLDecoder.decode(session);
-        SessionVo sessionVo = new SessionVo();
-        String match = "[^0-9a-zA-Z]";
-        sessionVo.setUser_session(session.replaceAll(match,""));
-        mapper.logout(sessionVo);
+    public void memberLogout(SessionVo session) {
+        mapper.logout(getSession(session));
     }
 
     @Override
-    public MemberVo getMember(MemberVo memberVo) {
-        return mapper.getMember(memberVo);
+    public MemberVo getMember(SessionVo sessionVo) {
+        return mapper.getMember(getSession(sessionVo));
     }
 
     @Override
-    public Boolean userState(String str) {
-        str = URLDecoder.decode(str);
-        System.out.println(str);
-        SessionVo sessionVo = new SessionVo();
-        MemberVo memberVo = new MemberVo();
-        String match = "[^0-9a-zA-Z]";
-        System.out.println(str.replaceAll(match,""));
-        sessionVo.setUser_session(str.replaceAll(match,""));
+    public Boolean userState(SessionVo sessionVo) {
 
-        sessionVo = mapper.getSession(sessionVo);
-
-        memberVo.setId(sessionVo.getId());
-        if(mapper.getMember(memberVo) == null){
+        sessionVo = mapper.getSession(getSession(sessionVo));
+        if(mapper.getSession(sessionVo) == null){
             return false;
         }else {
             return true;
         }
+    }
+
+    public SessionVo getSession(SessionVo sessionVo){
+
+        String str = sessionVo.getUser_session();
+        String match = "[^0-9a-zA-Z]";
+        sessionVo.setUser_session(str.replaceAll(match,""));
+
+        return sessionVo;
     }
 
 }

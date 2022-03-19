@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface XmlMapper {
     List<MemberVo> getAllMember();
-    MemberVo getMember(MemberVo memberVo);
+    MemberVo getMember(SessionVo sessionVo);
     void memberInsert(MemberVo memberVo);
     MemberVo getId(MemberVo memberVo);
     MemberVo getPhone(MemberVo memberVo);

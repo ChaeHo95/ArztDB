@@ -14,7 +14,7 @@
     </insert>
 
     <select id="getMember" resultType="MemberVo">
-        select * from member where id = #{id}
+        select * from loginsession,member where loginsession.id = member.id and user_session= #{user_session}
     </select>
 
     <select id="getId" resultType="MemberVo">
@@ -42,6 +42,6 @@
     </select>
 
     <select id="getSession" resultType="SessionVo">
-        select * from loginsession where user_session = #{user_session}
+        select * from loginsession,member where loginsession.id = member.id and user_session = #{user_session}
     </select>
 </mapper>
