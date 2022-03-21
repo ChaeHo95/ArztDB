@@ -29,6 +29,11 @@ public class MemberController {
         return memberService.memberInsert(memberVo);
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public MemberVo memberUpdate(@RequestBody MemberVo memberVo) {
+        return memberService.memberUpdate(memberVo);
+    }
+
     @RequestMapping(value ="/show" , method = RequestMethod.GET )
     public List<MemberVo> userShow() {
         return memberService.getAllMember();
@@ -43,6 +48,7 @@ public class MemberController {
     public void memberLogout(@RequestBody SessionVo sessionVo) {
         memberService.memberLogout(sessionVo);
     }
+
     @RequestMapping(value ="/state" , method = RequestMethod.POST )
     public Boolean userState(@RequestBody SessionVo sessionVo) {
         return memberService.userState(sessionVo);
@@ -53,4 +59,8 @@ public class MemberController {
         return memberService.getMember(sessionVo);
     }
 
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public boolean memberDelete(@RequestBody SessionVo sessionVo) {
+        return memberService.memberDelete(sessionVo);
+    }
 }

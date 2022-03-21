@@ -41,7 +41,15 @@
         select * from loginsession
     </select>
 
-    <select id="getSession" resultType="SessionVo">
+    <select id="getSession" resultType="MemberVo">
         select * from loginsession,member where loginsession.id = member.id and user_session = #{user_session}
     </select>
+
+    <update id="memberUpdate" parameterType="MemberVo">
+        update member set user_pwd = #{user_pwd},user_phone = #{user_phone}, user_mail = #{user_mail},user_adress = #{user_adress} where user_id = #{user_id}
+    </update>
+
+    <delete id="memberDelete" parameterType="MemberVo">
+        delete from member where id = #{id}
+    </delete>
 </mapper>

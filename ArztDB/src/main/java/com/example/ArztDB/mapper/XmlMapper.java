@@ -16,7 +16,8 @@ public interface XmlMapper {
     MemberVo getMail(MemberVo memberVo);
     void login(SessionVo sessionVo);
     List<SessionVo> getAllSession();
-
-    SessionVo getSession(SessionVo sessionVo);
+    void memberUpdate(MemberVo memberVo);
+    void memberDelete(MemberVo memberVo);
+    MemberVo getSession(SessionVo sessionVo);
     void logout(SessionVo sessionVo);
 }

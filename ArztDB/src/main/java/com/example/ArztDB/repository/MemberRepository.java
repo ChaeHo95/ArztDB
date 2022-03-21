@@ -20,4 +20,8 @@ public interface MemberRepository {
     MemberVo getMember(SessionVo sessionVo);
 
     Boolean userState(SessionVo sessionVo);
+
+    MemberVo memberUpdate(MemberVo memberVo);
+
+    boolean memberDelete(SessionVo sessionVo);
 }

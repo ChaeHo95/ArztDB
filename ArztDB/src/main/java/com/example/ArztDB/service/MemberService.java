@@ -110,12 +110,44 @@ public class MemberService implements MemberRepository {
 
     @Override
     public Boolean userState(SessionVo sessionVo) {
-
-        sessionVo = mapper.getSession(getSession(sessionVo));
-        if(mapper.getSession(sessionVo) == null){
+        if(mapper.getSession(getSession(sessionVo)) == null){
             return false;
         }else {
             return true;
+        }
+    }
+
+    @Override
+    public MemberVo memberUpdate(MemberVo memberVo) {
+        String user_phone = mapper.getPhone(memberVo) == null ? null: memberVo.getUser_phone();;
+        String user_mail = mapper.getMail(memberVo) == null ? null: memberVo.getUser_mail();
+        System.out.println(memberVo.toString());
+        if(user_phone == null && user_mail == null) {
+            mapper.memberUpdate(memberVo);
+            memberVo.setUser_phone(user_phone);
+            memberVo.setUser_mail(user_mail);
+            return memberVo;
+        }else if(mapper.getId(mapper.getPhone(memberVo)).getUser_id().equals(memberVo.getUser_id()) && mapper.getId(mapper.getMail(memberVo)).getUser_id().equals(memberVo.getUser_id())) {
+            mapper.memberUpdate(memberVo);
+            memberVo.setUser_phone(null);
+            memberVo.setUser_mail(null);
+            return memberVo;
+        }else {
+            memberVo.setUser_phone(user_phone);
+            memberVo.setUser_mail(user_mail);
+            return memberVo;
+        }
+    }
+
+    @Override
+    public boolean memberDelete(SessionVo sessionVo) {
+        MemberVo memberVo = mapper.getMember(getSession(sessionVo));
+        mapper.memberDelete(memberVo);
+        mapper.logout(getSession(sessionVo));
+        if(mapper.getSession(getSession(sessionVo)) == null){
+            return true;
+        }else {
+            return false;
         }
     }
 
