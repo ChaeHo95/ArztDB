@@ -32,6 +32,7 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+/test/
 
 ### VS Code ###
 .vscode/
