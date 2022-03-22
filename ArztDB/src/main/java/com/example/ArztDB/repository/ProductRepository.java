@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProductRepository {
-    String getApiProduct();
+//    void getApiProduct();
 }

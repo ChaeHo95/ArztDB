@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.example.ArztDB.mapper.ProductMapper">
+
+    <insert id="productInsert" parameterType="ProductVo">
+        insert into product values(#{productId},#{title},#{brand},#{category1},#{category2},#{category3},#{image},#{lprice},#{mallName},default)
+    </insert>
+
+<!--    <select id="getProduct" resultType="ProductVo">-->
+<!--        select * from product where product_id = #{productId}-->
+<!--    </select>-->
+
+    <select id="getAllProductCategory" resultType="ProductVo">
+    select category1 from product group by category1
+    </select>
+
+
+
+</mapper>

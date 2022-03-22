@@ -1,0 +1,13 @@
+package com.example.ArztDB.mapper;
+
+import com.example.ArztDB.vo.ProductVo;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+
+@Mapper
+public interface ProductMapper {
+    void productInsert(ProductVo productVo);
+//    ProductVo getProduct(ProductVo productVo);
+    List<ProductVo> getAllProductCategory();
+}
