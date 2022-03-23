@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.ArztDB.mapper.BoardXmlMapper">
+
+    <select id="boardList" resultType="BoardVo">
+        select * from boardbno
+    </select>
+
+    <select id="boardDetail" resultType="BoardVo">
+     SELECT * FROM BOARDBNO WHERE BNO = #{bno}
+    </select>
+
+    <insert id="boardInsert" parameterType="BoardVo">
+        INSERT INTO BOARDBNO VALUES(#{bno}, #{subject}, #{content}, #{writer}, default )
+    </insert>
+
+    <update id="boardUpdate" parameterType="BoardVo">
+        UPDATE BOARDBNO SET subject=#{subject},content=#{content} WHERE BNO = #{bno}
+    </update>
+
+    <delete id="boardDelete" parameterType="BoardVo">
+        DELETE FROM BOARDBNO WHERE subject = #{subject}
+    </delete>
+
+</mapper>
+
+

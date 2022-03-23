@@ -14,6 +14,7 @@ import com.example.ArztDB.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -21,6 +22,13 @@ public class ProductService implements ProductRepository {
 
     @Autowired
     ProductMapper productMapper;
+
+    @Override
+    public List<String> getAllProductCategory1() {
+        List<String> category1 = productMapper.getAllProductCategory1();
+
+        return category1;
+    }
 
 //    @Override
 //    public void getApiProduct() {

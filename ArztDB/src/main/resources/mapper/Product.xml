@@ -13,7 +13,7 @@
 <!--        select * from product where product_id = #{productId}-->
 <!--    </select>-->
 
-    <select id="getAllProductCategory" resultType="ProductVo">
+    <select id="getAllProductCategory1" resultType="String">
     select category1 from product group by category1
     </select>
 
