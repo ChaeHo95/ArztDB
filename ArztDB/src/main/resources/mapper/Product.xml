@@ -14,9 +14,15 @@
 <!--    </select>-->
 
     <select id="getAllProductCategory1" resultType="String">
-    select category1 from product group by category1
+        select category1 from product group by category1
     </select>
 
+    <select id="getAllProductCategory2" parameterType="CategoryVo" resultType="String">
+        select category2 from product where category1 = #{category1} group by category2
+    </select>
 
+    <select id="getAllProductCategory3" parameterType="CategoryVo" resultType="String">
+        select category3 from product where category1 = #{category1} and category2 = #{category2} group by category3
+    </select>
 
 </mapper>

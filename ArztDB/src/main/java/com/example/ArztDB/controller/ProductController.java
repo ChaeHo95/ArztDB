@@ -1,11 +1,9 @@
 package com.example.ArztDB.controller;
 
 import com.example.ArztDB.service.ProductService;
+import com.example.ArztDB.vo.CategoryVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 //import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,5 +23,13 @@ public class ProductController {
     @RequestMapping(value = "/category1", method = RequestMethod.GET)
     public List<String> getCategory1(){
         return productService.getAllProductCategory1();
+    }
+    @RequestMapping(value = "/category2", method = RequestMethod.POST)
+    public List<String> getCategory2(@RequestBody CategoryVo categoryVo){
+        return productService.getAllProductCategory2(categoryVo);
+    }
+    @RequestMapping(value = "/category3", method = RequestMethod.POST)
+    public List<String> getCategory3(@RequestBody CategoryVo categoryVo){
+        return productService.getAllProductCategory3(categoryVo);
     }
 }
