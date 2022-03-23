@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="arztDB" uuid="8edd2c2e-e793-4bc3-99fa-feaeedc09b78">
+    <data-source source="LOCAL" name="@localhost" uuid="f9dce40c-e6a9-4cc1-bdde-883aecac7330">
       <driver-ref>oracle.19</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
