@@ -24,6 +24,7 @@ public class MemberService implements MemberRepository {
 
     @Override
     public MemberVo memberInsert(MemberVo memberVo) {
+        System.out.println("2");
         String user_id = mapper.getId(memberVo) == null ? null: memberVo.getUser_id();
         String user_phone = mapper.getPhone(memberVo) == null ? null: memberVo.getUser_phone();;
         String user_mail = mapper.getMail(memberVo) == null ? null: memberVo.getUser_mail();
@@ -46,6 +47,7 @@ public class MemberService implements MemberRepository {
     public SessionVo memberLogin(MemberVo memberVo) {
         SessionVo sessionVo = new SessionVo();
         MemberVo member = mapper.getId(memberVo);
+
         List<SessionVo> sessionVos = mapper.getAllSession();
         for(int  i=0; i<sessionVos.size(); i++){
             if(sessionVos.get(i).getId() == member.getId()){

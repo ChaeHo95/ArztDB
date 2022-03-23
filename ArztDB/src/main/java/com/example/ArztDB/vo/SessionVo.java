@@ -16,4 +16,6 @@ public class SessionVo {
     private String user_session;
     @JsonProperty
     private String user_login;
+    @JsonProperty
+    private String use_session;
 }

@@ -12,7 +12,7 @@
     </select>
 
     <insert id="boardInsert" parameterType="BoardVo">
-        INSERT INTO BOARDBNO VALUES(#{bno}, #{subject}, #{content}, #{writer}, default )
+        INSERT INTO BOARDBNO VALUES(no_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default )
     </insert>
 
     <update id="boardUpdate" parameterType="BoardVo">

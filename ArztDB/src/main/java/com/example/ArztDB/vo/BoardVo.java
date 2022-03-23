@@ -12,10 +12,9 @@ import java.util.Date;
 @Setter
 @ToString
 public class BoardVo {
-
     //작성일자
     @JsonProperty
-    private Date data;
+    private Date date;
 
     //img URL source
     @JsonProperty

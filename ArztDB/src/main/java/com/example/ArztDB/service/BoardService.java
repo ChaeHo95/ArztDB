@@ -23,7 +23,9 @@ public class BoardService implements BoardRepository {
 
     @Override
     public BoardVo boardInsert(BoardVo boardVo){
+
         mapper.boardInsert(boardVo);
+
         return boardVo;
     }
     @Override
