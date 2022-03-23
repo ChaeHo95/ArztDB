@@ -1,5 +1,6 @@
 package com.example.ArztDB.service;
 
+import com.example.ArztDB.vo.CategoryVo;
 import com.example.ArztDB.vo.ProductVo;
 import com.fasterxml.jackson.core.JsonParser;
 import org.json.simple.JSONArray;
@@ -26,8 +27,19 @@ public class ProductService implements ProductRepository {
     @Override
     public List<String> getAllProductCategory1() {
         List<String> category1 = productMapper.getAllProductCategory1();
-
         return category1;
+    }
+
+    @Override
+    public List<String> getAllProductCategory2(CategoryVo categoryVo) {
+        List<String> category2 = productMapper.getAllProductCategory2(categoryVo);
+        return category2;
+    }
+
+    @Override
+    public List<String> getAllProductCategory3(CategoryVo categoryVo) {
+        List<String> category3 = productMapper.getAllProductCategory3(categoryVo);
+        return category3;
     }
 
 //    @Override
