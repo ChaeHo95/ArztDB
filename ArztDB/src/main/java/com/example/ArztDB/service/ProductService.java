@@ -8,6 +8,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.http.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.ArztDB.mapper.ProductMapper;
@@ -40,6 +43,18 @@ public class ProductService implements ProductRepository {
     public List<String> getAllProductCategory3(CategoryVo categoryVo) {
         List<String> category3 = productMapper.getAllProductCategory3(categoryVo);
         return category3;
+    }
+
+    @Override
+    public List<ProductVo> getCategoryProdoct(CategoryVo categoryVo) {
+        System.out.println(categoryVo.toString());
+        return productMapper.getProducts(categoryVo);
+    }
+
+    @Override
+    public ProductVo getProduct(ProductVo productVo) {
+        System.out.println(productVo.toString());
+        return productMapper.getProduct(productVo);
     }
 
 //    @Override

@@ -12,4 +12,6 @@ public interface ProductRepository {
     List<String> getAllProductCategory1();
     List<String> getAllProductCategory2(CategoryVo categoryVo);
     List<String> getAllProductCategory3(CategoryVo categoryVo);
+    List<ProductVo> getCategoryProdoct(CategoryVo categoryVo);
+    ProductVo getProduct(ProductVo productVo);
 }

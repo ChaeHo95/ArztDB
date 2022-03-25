@@ -14,4 +14,6 @@ public interface ProductMapper {
     List<String> getAllProductCategory1();
     List<String> getAllProductCategory2(CategoryVo categoryVo);
     List<String> getAllProductCategory3(CategoryVo categoryVo);
+    List<ProductVo> getProducts(CategoryVo categoryVo);
+    ProductVo getProduct(ProductVo productVo);
 }

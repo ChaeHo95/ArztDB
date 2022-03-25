@@ -16,4 +16,7 @@ public class CategoryVo {
 
     @JsonProperty
     private String category2;
+
+    @JsonProperty
+    private String category3;
 }
