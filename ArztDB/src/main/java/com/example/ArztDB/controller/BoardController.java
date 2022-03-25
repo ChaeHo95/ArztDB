@@ -19,6 +19,7 @@ public class BoardController {
     //계시글 생성
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public BoardVo boardInsert(@RequestBody BoardVo boardVo){
+        System.out.println(boardVo.toString());
         return boardService.boardInsert(boardVo);
     }
 
