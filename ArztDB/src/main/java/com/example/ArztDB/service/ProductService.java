@@ -1,5 +1,6 @@
 package com.example.ArztDB.service;
 
+import com.example.ArztDB.vo.CartVo;
 import com.example.ArztDB.vo.CategoryVo;
 import com.example.ArztDB.vo.ProductVo;
 import com.fasterxml.jackson.core.JsonParser;
@@ -18,6 +19,8 @@ import com.example.ArztDB.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -55,6 +58,17 @@ public class ProductService implements ProductRepository {
     public ProductVo getProduct(ProductVo productVo) {
         System.out.println(productVo.toString());
         return productMapper.getProduct(productVo);
+    }
+
+    @Override
+    public List<ProductVo> getCartProduct(CartVo cartVo) {
+        ProductVo productVo = new ProductVo();
+        List<ProductVo> cars = new ArrayList<>();
+        for(String strs : cartVo.getCarts().split(",")) {
+            productVo.setProduct_id(strs.replace("=",""));
+            cars.add(productMapper.getProduct(productVo));
+        }
+        return cars;
     }
 
 //    @Override

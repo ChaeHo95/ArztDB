@@ -1,6 +1,7 @@
 package com.example.ArztDB.controller;
 
 import com.example.ArztDB.service.ProductService;
+import com.example.ArztDB.vo.CartVo;
 import com.example.ArztDB.vo.CategoryVo;
 import com.example.ArztDB.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,12 @@ public class ProductController {
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ProductVo getProduct(@RequestBody ProductVo productVo){
         return productService.getProduct(productVo);
+    }
+
+    @RequestMapping(value = "/cart", method = RequestMethod.POST)
+    public List<ProductVo> getCartProduct(@RequestBody CartVo cartVo){
+        System.out.println(cartVo);
+        return productService.getCartProduct(cartVo);
     }
 
 }
