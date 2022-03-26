@@ -71,6 +71,11 @@ public class ProductService implements ProductRepository {
         return cars;
     }
 
+    @Override
+    public List<ProductVo> getAllProducts() {
+        return productMapper.getAllProducts();
+    }
+
 //    @Override
 //    public void getApiProduct() {
 //        RestTemplate rest = new RestTemplate();

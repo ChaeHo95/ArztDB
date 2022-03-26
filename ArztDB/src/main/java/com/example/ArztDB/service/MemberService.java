@@ -123,7 +123,6 @@ public class MemberService implements MemberRepository {
     public MemberVo memberUpdate(MemberVo memberVo) {
         String user_phone = mapper.getPhone(memberVo) == null ? null: memberVo.getUser_phone();;
         String user_mail = mapper.getMail(memberVo) == null ? null: memberVo.getUser_mail();
-        System.out.println(memberVo.toString());
         if(user_phone == null && user_mail == null) {
             mapper.memberUpdate(memberVo);
             memberVo.setUser_phone(user_phone);

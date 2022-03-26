@@ -50,4 +50,9 @@ public class ProductController {
         return productService.getCartProduct(cartVo);
     }
 
+    @RequestMapping(value = "/allProducts", method = RequestMethod.GET)
+    public List<ProductVo> getAllProducts(){
+        return productService.getAllProducts();
+    }
+
 }

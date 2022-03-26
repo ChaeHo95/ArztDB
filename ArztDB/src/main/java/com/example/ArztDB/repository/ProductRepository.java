@@ -16,4 +16,5 @@ public interface ProductRepository {
     List<ProductVo> getCategoryProdoct(CategoryVo categoryVo);
     ProductVo getProduct(ProductVo productVo);
     List<ProductVo> getCartProduct(CartVo cartVo);
+    List<ProductVo> getAllProducts();
 }
