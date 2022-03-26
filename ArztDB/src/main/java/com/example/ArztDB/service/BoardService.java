@@ -37,6 +37,12 @@ public class BoardService implements BoardRepository {
     public  BoardVo boardUpdate(BoardVo boardVo){
        return mapper.boardUpdate(boardVo);
     }
+
+    @Override
+    public BoardVo detail(BoardVo boardVo){
+
+        return mapper.boardDetail(boardVo);
+    }
 }
 
 

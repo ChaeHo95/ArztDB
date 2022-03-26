@@ -10,7 +10,7 @@ public interface BoardXmlMapper{
 
     List<BoardVo> boardList();
 
-    BoardVo boardDetail(BoardVo boardVo);
+    BoardVo boardDetail(BoardVo boardVo);;
 
     void boardInsert(BoardVo boardVo);
 

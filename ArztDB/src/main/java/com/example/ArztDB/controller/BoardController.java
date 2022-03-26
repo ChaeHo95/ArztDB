@@ -42,5 +42,10 @@ public class BoardController {
         return boardService.boardUpdate(boardVo);
     }
 
+    @RequestMapping(value ="/detail" , method = RequestMethod.POST )
+    public BoardVo detail(@RequestBody BoardVo boardVo){
+        return boardService.detail(boardVo);
+    }
+
 
 }

@@ -16,4 +16,6 @@ public interface BoardRepository {
     BoardVo boardDelete(BoardVo boardVo);
 
     BoardVo boardUpdate(BoardVo boardVo);
+
+    BoardVo detail(BoardVo boardVo);
 }

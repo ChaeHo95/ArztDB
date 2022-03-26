@@ -4,11 +4,11 @@
 <mapper namespace="com.example.ArztDB.mapper.BoardXmlMapper">
 
     <select id="boardList" resultType="BoardVo">
-        select * from boardbno
+        select * from boardbno order by "date" desc
     </select>
 
-    <select id="boardDetail" resultType="BoardVo">
-     SELECT * FROM BOARDBNO WHERE BNO = #{bno}
+    <select id="boardDetail" parameterType="BoardVo" resultType="BoardVo">
+     SELECT * FROM BOARDBNO WHERE id = #{id}
     </select>
 
     <insert id="boardInsert" parameterType="BoardVo">
