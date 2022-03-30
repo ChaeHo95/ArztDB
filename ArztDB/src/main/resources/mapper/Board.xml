@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.example.ArztDB.mapper.BoardXmlMapper">
+<mapper namespace="com.example.ArztDB.mapper.BoardMapper">
 
     <select id="boardList" resultType="BoardVo">
         select * from boardbno order by "date" desc
@@ -12,11 +12,11 @@
     </select>
 
     <insert id="boardInsert" parameterType="BoardVo">
-        INSERT INTO BOARDBNO VALUES(no_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default )
+        INSERT INTO BOARDBNO VALUES(no_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default,default )
     </insert>
 
     <update id="boardUpdate" parameterType="BoardVo">
-        UPDATE BOARDBNO SET subject=#{subject},content=#{content} WHERE BNO = #{bno}
+        UPDATE BOARDBNO SET subject=#{subject},content=#{content} WHERE id = #{id}
     </update>
 
     <delete id="boardDelete" parameterType="BoardVo">

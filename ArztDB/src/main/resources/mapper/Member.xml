@@ -41,8 +41,8 @@
         select * from loginsession
     </select>
 
-    <select id="getSession" resultType="MemberVo">
-        select * from loginsession,member where loginsession.id = member.id and user_session = #{user_session}
+    <select id="getSession" parameterType="MemberVo" resultType="SessionVo">
+        select * from loginsession,member where loginsession.id = member.id and loginsession.id = #{id}
     </select>
 
     <update id="memberUpdate" parameterType="MemberVo">

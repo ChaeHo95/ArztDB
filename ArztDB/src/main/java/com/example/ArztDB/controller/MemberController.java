@@ -50,7 +50,7 @@ public class MemberController {
     }
 
     @RequestMapping(value ="/state" , method = RequestMethod.POST )
-    public Boolean userState(@RequestBody SessionVo sessionVo) {
+    public SessionVo userState(@RequestBody SessionVo sessionVo) {
         return memberService.userState(sessionVo);
     }
 
@@ -60,7 +60,7 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public boolean memberDelete(@RequestBody SessionVo sessionVo) {
-        return memberService.memberDelete(sessionVo);
+    public boolean memberDelete(@RequestBody MemberVo memberVo) {
+        return memberService.memberDelete(memberVo);
     }
 }

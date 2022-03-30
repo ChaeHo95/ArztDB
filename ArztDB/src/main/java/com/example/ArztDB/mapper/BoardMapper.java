@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface BoardXmlMapper{
+public interface BoardMapper{
 
     List<BoardVo> boardList();
 
@@ -16,5 +16,5 @@ public interface BoardXmlMapper{
 
     BoardVo boardDelete(BoardVo boardVo);
 
-    BoardVo boardUpdate(BoardVo boardVo);
+    void boardUpdate(BoardVo boardVo);
 }

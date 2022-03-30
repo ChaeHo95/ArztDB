@@ -18,6 +18,6 @@ public interface XmlMapper {
     List<SessionVo> getAllSession();
     void memberUpdate(MemberVo memberVo);
     void memberDelete(MemberVo memberVo);
-    MemberVo getSession(SessionVo sessionVo);
+    SessionVo getSession(MemberVo memberVo);
     void logout(SessionVo sessionVo);
 }

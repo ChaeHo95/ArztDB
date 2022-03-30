@@ -9,13 +9,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BoardRepository {
 
-    List<BoardVo> boardlist();
+    List boardlist();
 
     BoardVo boardInsert(BoardVo boardVo);
 
     BoardVo boardDelete(BoardVo boardVo);
 
-    BoardVo boardUpdate(BoardVo boardVo);
+    boolean boardUpdate(BoardVo boardVo);
 
     BoardVo detail(BoardVo boardVo);
 }

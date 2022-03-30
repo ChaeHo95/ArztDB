@@ -19,13 +19,12 @@ public class BoardController {
     //계시글 생성
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     public BoardVo boardInsert(@RequestBody BoardVo boardVo){
-        System.out.println(boardVo.toString());
         return boardService.boardInsert(boardVo);
     }
 
     //전체 리스트
     @RequestMapping(value ="/show" , method = RequestMethod.GET )
-    public List<BoardVo> allboardlist(){
+    public List allboardlist(){
         return boardService.boardlist();
     }
 
@@ -38,7 +37,7 @@ public class BoardController {
 
     //계스글 수정
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-    public BoardVo boardUpdate(@RequestBody BoardVo boardVo){
+    public boolean boardUpdate(@RequestBody BoardVo boardVo){
         return boardService.boardUpdate(boardVo);
     }
 

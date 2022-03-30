@@ -40,6 +40,6 @@ public class ProductVo {
     private String title;
 
     @JsonProperty
-    private Date data;
+    private Date date;
 
 }

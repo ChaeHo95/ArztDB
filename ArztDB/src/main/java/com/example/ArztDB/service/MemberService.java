@@ -111,12 +111,23 @@ public class MemberService implements MemberRepository {
     }
 
     @Override
-    public Boolean userState(SessionVo sessionVo) {
-        if(mapper.getSession(getSession(sessionVo)) == null){
-            return false;
+    public SessionVo userState(SessionVo sessionVo) {
+        if(mapper.getMember(getSession(sessionVo)) == null){
+            sessionVo.setUser_login("false");
+            return sessionVo;
         }else {
-            return true;
+            MemberVo memberVo = mapper.getMember(sessionVo);
+            if(memberVo.getUser_op().contains("1")) {
+                sessionVo.setOp("관리자");
+            }else if (memberVo.getUser_op().contains("2")){
+                sessionVo.setOp("판매자");
+            }else {
+                sessionVo.setOp("구매자");
+            }
+            sessionVo.setUser_login("true");
+            return sessionVo;
         }
+
     }
 
     @Override
@@ -141,12 +152,19 @@ public class MemberService implements MemberRepository {
     }
 
     @Override
-    public boolean memberDelete(SessionVo sessionVo) {
-        MemberVo memberVo = mapper.getMember(getSession(sessionVo));
+    public boolean memberDelete(MemberVo memberVo) {
+        System.out.println(memberVo.toString());
+        if(memberVo.getId() == null){
+        memberVo = mapper.getId(memberVo);
+        }
         mapper.memberDelete(memberVo);
-        mapper.logout(getSession(sessionVo));
-        if(mapper.getSession(getSession(sessionVo)) == null){
-            return true;
+
+        if (mapper.getSession(memberVo) != null){
+            SessionVo sessionVo = mapper.getSession(memberVo);
+            mapper.logout(getSession(sessionVo));
+        }
+        if(mapper.getId(memberVo) == null){
+             return true;
         }else {
             return false;
         }
