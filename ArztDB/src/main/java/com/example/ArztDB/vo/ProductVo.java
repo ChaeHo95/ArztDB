@@ -34,7 +34,7 @@ public class ProductVo {
     private String mallName;
 
     @JsonProperty
-    private String product_id;
+    private String productId;
 
     @JsonProperty
     private String title;

@@ -15,7 +15,8 @@ public class BoardVo {
     //작성일자
     @JsonProperty
     private Date date;
-
+    @JsonProperty
+    private Integer count;
     //ID
     @JsonProperty
     private Integer id;

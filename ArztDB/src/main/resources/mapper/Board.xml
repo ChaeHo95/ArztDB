@@ -4,7 +4,7 @@
 <mapper namespace="com.example.ArztDB.mapper.BoardXmlMapper">
 
     <select id="boardList" resultType="BoardVo">
-        select * from boardbno
+        select * from BOARDBNO
     </select>
 
     <select id="boardDetail" resultType="BoardVo">
@@ -12,7 +12,7 @@
     </select>
 
     <insert id="boardInsert" parameterType="BoardVo">
-        INSERT INTO BOARDBNO VALUES(no_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default )
+        INSERT INTO BOARDBNO VALUES(no_seq.NEXTVAL, #{subject}, #{content}, #{writer}, default ,#{counts})
     </insert>
 
     <update id="boardUpdate" parameterType="BoardVo">
